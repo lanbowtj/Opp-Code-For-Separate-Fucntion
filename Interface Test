@@ -1,0 +1,39 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ConsoleApp2
+{
+    class InterfaceTest2
+    {
+        
+        static void Main()
+        {
+            int[] nums1 =new int[] { 1, 2, 3, 4, 5 };
+            ArrayList nums2 = new ArrayList { 1, 2, 3, 4, 5 };
+            Console.WriteLine("the sum of nums1= " +Sum(nums1));
+            Console.WriteLine("the avg of nums1= " +Avg (nums1));
+            Console.WriteLine("the sum of nums2= " +Sum (nums2));
+            Console.WriteLine("the avg of nums2= " +Avg(nums2));
+        }
+        static int Sum(IEnumerable num)
+        {
+            int sum = 0;
+            foreach (var i in num) sum +=(int) i;
+            return sum;
+        }
+        static double Avg(IEnumerable num)
+        {
+            int sum = 0;
+            int count = 0;
+            foreach (var i in num)
+            {
+                sum += (int)i;
+                count++;
+            }
+            return (sum / count);
+        }
+    }  
+
+}
